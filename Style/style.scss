@@ -1,8 +1,8 @@
 .btn-link {
   padding-left: 0;
   padding-right: 0;
-  font-weight: $font-weight-bold;
   border: 0;
+  font-weight: $font-weight-bold;
 }
 
 .text-brand {
@@ -35,4 +35,32 @@
 .card.bg-secondary {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.btn-group button {
+  font-weight: $font-weight-normal;
+}
+
+textarea {
+  width: 100%;
+  background-color: transparent;
+
+  /* https://stackoverflow.com/a/17110012 */
+  border: none;
+  overflow: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+
+  resize: none; /*remove the resize handle on the bottom right*/
+}
+
+.card textarea {
+  color: $white;
+}
+
+.bg-success,
+.bg-danger p.lead {
+  color: $white;
 }

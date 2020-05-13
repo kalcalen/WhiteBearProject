@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
 }
 
 abbr[title],
@@ -387,7 +387,7 @@ h6, .h6 {
 
 .lead {
   font-size: 1.25rem;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .display-1 {
@@ -2067,14 +2067,14 @@ select.form-control:focus::-ms-value {
 .col-form-label-lg {
   padding-top: 9px;
   padding-bottom: 9px;
-  font-size: 1rem;
+  font-size: 1.25rem;
   line-height: 1.5;
 }
 
 .col-form-label-sm {
   padding-top: 5px;
   padding-bottom: 5px;
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.5;
 }
 
@@ -2098,7 +2098,7 @@ select.form-control:focus::-ms-value {
 .form-control-sm {
   height: calc(1.5em + 0.5rem + 2px);
   padding: 4 1rem;
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
 }
@@ -2106,7 +2106,7 @@ select.form-control:focus::-ms-value {
 .form-control-lg {
   height: calc(1.5em + 1rem + 2px);
   padding: 8 32;
-  font-size: 1rem;
+  font-size: 1.25rem;
   line-height: 1.5;
   border-radius: 0.3rem;
 }
@@ -2152,7 +2152,7 @@ textarea.form-control {
   margin-left: -1.25rem;
 }
 .form-check-input[disabled] ~ .form-check-label, .form-check-input:disabled ~ .form-check-label {
-  color: #80818d;
+  color: #6c757d;
 }
 
 .form-check-label {
@@ -2965,14 +2965,14 @@ fieldset:disabled a.btn {
 
 .btn-lg, .btn-group-lg > .btn {
   padding: 8 32;
-  font-size: 1rem;
+  font-size: 1.25rem;
   line-height: 1.5;
   border-radius: 0.3rem;
 }
 
 .btn-sm, .btn-group-sm > .btn {
   padding: 4 1rem;
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
 }
@@ -3481,7 +3481,7 @@ input[type=button].btn-block {
 .input-group-lg > .input-group-prepend > .btn,
 .input-group-lg > .input-group-append > .btn {
   padding: 8 32;
-  font-size: 1rem;
+  font-size: 1.25rem;
   line-height: 1.5;
   border-radius: 0.3rem;
 }
@@ -3498,7 +3498,7 @@ input[type=button].btn-block {
 .input-group-sm > .input-group-prepend > .btn,
 .input-group-sm > .input-group-append > .btn {
   padding: 4 1rem;
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
 }
@@ -11335,7 +11335,7 @@ a.text-succes s:hover, a.text-succes s:focus {
 }
 
 .text-muted {
-  color: #80818d !important;
+  color: #6c757d !important;
 }
 
 .text-black-50 {
@@ -11473,7 +11473,6 @@ h3 {
   padding-left: 0;
   padding-right: 0;
   border: 0;
-  font-weight: 700;
 }
 
 .text-brand {
@@ -11512,27 +11511,4 @@ h3 {
   font-weight: 400;
 }
 
-textarea {
-  width: 100%;
-  background-color: transparent;
-  /* https://stackoverflow.com/a/17110012 */
-  border: none;
-  overflow: auto;
-  outline: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  resize: none;
-  /*remove the resize handle on the bottom right*/
-}
-
-.card textarea {
-  color: #fff;
-}
-
-.bg-success,
-.bg-danger p.lead {
-  color: #fff;
-}
-
-/*# sourceMappingURL=dist.css.map */
+/*# sourceMappingURL=dist.scss.map */
