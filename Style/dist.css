@@ -11535,4 +11535,15 @@ textarea {
   color: #fff;
 }
 
+.background-image {
+  background-image: url("/images/background-landing.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+
+.index-logo {
+  color: #fff;
+}
+
 /*# sourceMappingURL=dist.css.map */
