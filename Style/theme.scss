@@ -94,16 +94,16 @@ $spacer: 1rem; // 16 px in most browsers
 $spacers: ();
 $spacers: map-merge(
   (
-    0: 0,
-    1: 4,
-    2: 8,
-    3: 12,
-    4: $spacer,
-    5: 24,
-    6: 32,
-    7: 48,
-    8: 64,
-    9: 128,
+    0: 0px,
+    1: 4px,
+    2: 8px,
+    3: 12px,
+    4: 16px,
+    5: 24px,
+    6: 32px,
+    7: 48px,
+    8: 64px,
+    9: 128px,
   ),
   $spacers
 );
