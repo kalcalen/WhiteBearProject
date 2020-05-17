@@ -11554,4 +11554,8 @@ textarea {
   color: #000;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=dist.css.map */
