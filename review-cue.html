@@ -22,30 +22,33 @@
 
           <h3 class="d-inline text-brand">White Bear</h3>
 
-          <button class="btn btn-link float-right">Log out</button>
+          <a href="index.html" class="btn btn-link float-right">Log out</a>
 
           <div
             class="btn-group d-flex mb-5"
             role="navigation"
             aria-label="navigation"
           >
-              <button
+            <a
+              href="create-answer.html"
               type="button"
-              class="btn btn-secondary tab-active"
-              >
+              class="btn btn-secondary"
+            >
               Create New
-              </button>
-
-                <a
-                href="index.html"
-                type="button"
-                class="btn btn-secondary"
-                >
-              Review</a>
+            </a>
+            <button
+              type="button"
+              class="btn btn-secondary tab-separator tab-active"
+            >
+              Review
             </button>
-            <button type="button" class="btn btn-secondary tab-separator">
+            <a
+              href="all-cards.html"
+              type="button"
+              class="btn btn-secondary tab-separator"
+            >
               All cards
-            </button>
+            </a>
           </div>
 
           <div class="mb-2">
@@ -65,9 +68,12 @@
 
           <button class="btn btn-link">Previous card</button>
           <div class="float-right">
-            <button class="btn btn-outline-primary float-right">
+            <a
+              href="review-answer.html"
+              class="btn btn-outline-primary float-right"
+            >
               Show answer
-            </button>
+            </a>
           </div>
         </div>
       </div>
