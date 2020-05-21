@@ -46,4 +46,14 @@ $(document).ready(function () {
       $("#passwordError").html("");
     }
   });
+
+  $("#textBox").keyup(function () {
+    let textCount = $("#textBox").val().length;
+    $("#count").html(`${textCount}/240`);
+    if (textCount > 240) {
+      $("#count").addClass("text-danger");
+    } else {
+      $("#count").removeClass("text-danger");
+    }
+  });
 });
