@@ -26,14 +26,15 @@
                 Let's get you signed up
               </button>
               <!-- Start of toggle/First card -->
-              <form id="form-toggle" class="form-group d-none">
+              <div id="form-toggle">
                 <label class="text-muted" for="email">Email Address</label>
                 <input
-                  class="form-control"
+                  class="form-control mb-3"
                   type="email"
                   id="emailCreate"
                   name="email"
                 />
+                <p class="text-danger" id="emailError"></p>
                 <label class="text-muted" for="password">Password</label>
                 <input
                   class="form-control mb-3"
@@ -41,13 +42,14 @@
                   id="passwordCreate"
                   name="password"
                 />
+                <p class="text-danger" id="passwordError"></p>
                 <button
                   id="letsGo"
-                  class="btn btn-success btn-block float-right"
+                  class="btn btn-success btn-block float-right mt-4"
                 >
                   Lets go!
                 </button>
-              </form>
+              </div>
             </div>
           </div>
         </div>
@@ -64,14 +66,14 @@
                 <input
                   class="form-control"
                   type="email"
-                  id="email"
+                  id="emailWelcome"
                   name="email"
                 />
                 <label class="text-muted" for="password">Password</label>
                 <input
                   class="form-control mb-3"
                   type="password"
-                  id="password"
+                  id="passwordWelcome"
                   name="password"
                 />
                 <a href="create-answer.html" class="btn btn-success float-right"
