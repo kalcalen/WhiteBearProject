@@ -34,18 +34,25 @@
                   id="emailCreate"
                   name="email"
                 />
-                <p class="text-danger" id="emailError"></p>
+                <p class="text-danger d-none" id="emailError">
+                  Please enter your email address
+                </p>
                 <label class="text-muted" for="password">Password</label>
                 <input
-                  class="form-control mb-3"
+                  class="form-control mb-3 mt-3"
                   type="password"
                   id="passwordCreate"
                   name="password"
                 />
-                <p class="text-danger" id="passwordError"></p>
+                <div class="text-danger d-none" id="passwordError">
+                  Please enter your password
+                </div>
+                <div class="text-danger d-none" id="passwordError9C">
+                  Your password must be at least 9 characters.
+                </div>
                 <button
                   id="letsGo"
-                  class="btn btn-success btn-block float-right mt-4"
+                  class="btn btn-success btn-block float-right mt-3"
                 >
                   Lets go!
                 </button>

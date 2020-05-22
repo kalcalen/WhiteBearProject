@@ -18,40 +18,37 @@ $("#sign-up").click(function () {
 //  $("#sign-up").hide();
 // });
 
-// Error no text / Success
+// Text input box actions
 $("#letsGo").click(function () {
-  let emailLength = $("#emailCreate").val().length;
-  let passwordLength = $("#passwordCreate").val().length;
+  // Varaibles for email and password textbox
+  var emailInput = $("#emailCreate").val().length;
+  var passwordInput = $("#passwordCreate").val().length;
 
-  if (emailLength === 0) {
+  // For email text box if empty
+  if (emailInput == 0) {
+    $("#emailError").removeClass("d-none");
     $("#emailCreate").addClass("is-invalid");
-    $("#emailError").html("Please enter a valid email.");
+    // If filled
   } else {
+    $("#emailError").addClass("d-none");
     $("#emailCreate").removeClass("is-invalid");
     $("#emailCreate").addClass("is-valid");
-    $("#emailError").html("");
   }
-
-  if (passwordLength < 9) {
+  // For password box if completely empty
+  if (passwordInput === 0) {
+    $("#passwordError").removeClass("d-none");
     $("#passwordCreate").addClass("is-invalid");
-    $("#passwordError").html("Your password must be at least 9 characters");
-    if (passwordLength === 0) {
-      $("#passwordCreate").addClass("is-invalid");
-      $("#passwordError").html("Please enter your password");
-    }
+    $("#passwordErrorNineC").addClass("d-none");
+    // If less than 9 characters
+  } else if (passwordInput < 9) {
+    $("#passwordCreate").addClass("is-invalid");
+    $("#passwordErrorNineC").removeClass("d-none");
+    $("#passwordError").addClass("d-none");
+    // If more than 9 characters
   } else {
+    $("#passwordError").addClass("d-none");
     $("#passwordCreate").removeClass("is-invalid");
     $("#passwordCreate").addClass("is-valid");
-    $("#passwordError").html("");
-  }
-});
-// Text area
-$("#textBox").keyup(function () {
-  let textCount = $("#textBox").val().length;
-  $("#count").html(`${textCount}/240`);
-  if (textCount > 240) {
-    $("#count").addClass("text-danger");
-  } else {
-    $("#count").removeClass("text-danger");
+    $("#passwordErrorNineC").addClass("d-none");
   }
 });
