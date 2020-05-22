@@ -1,59 +1,57 @@
-$(document).ready(function () {
+$("#form-toggle").toggle();
+// Index banners
+$("#save-imagery").click(function () {
+  $("#overlay-success").toggleClass("d-flex d-none");
+});
+
+$("#back2-answer").click(function () {
+  $("#overlay-error").toggleClass("d-flex d-none");
+});
+
+// Sign-up button index
+$("#sign-up").click(function () {
   $("#form-toggle").toggle();
-  // Index banners
-  $("#save-imagery").click(function () {
-    $("#overlay-success").toggleClass("d-flex d-none");
-  });
+  $("#sign-up").toggle();
+});
 
-  $("#back2-answer").click(function () {
-    $("#overlay-error").toggleClass("d-flex d-none");
-  });
+//$("#sign-up").click(function () {
+//  $("#sign-up").hide();
+// });
 
-  // Sign-up button index
-  $("#sign-up").click(function () {
-    $("#form-toggle").toggle();
-    $("#sign-up").toggle();
-  });
+// Error no text / Success
+$("#letsGo").click(function () {
+  let emailLength = $("#emailCreate").val().length;
+  let passwordLength = $("#passwordCreate").val().length;
 
-  //$("#sign-up").click(function () {
-  //  $("#sign-up").hide();
-  // });
+  if (emailLength === 0) {
+    $("#emailCreate").addClass("is-invalid");
+    $("#emailError").html("Please enter a valid email.");
+  } else {
+    $("#emailCreate").removeClass("is-invalid");
+    $("#emailCreate").addClass("is-valid");
+    $("#emailError").html("");
+  }
 
-  // Error no text / Success
-  $("#letsGo").click(function () {
-    let emailLength = $("#emailCreate").val().length;
-    let passwordLength = $("#passwordCreate").val().length;
-
-    if (emailLength === 0) {
-      $("#emailCreate").addClass("is-invalid");
-      $("#emailError").html("Please enter a valid email.");
-    } else {
-      $("#emailCreate").removeClass("is-invalid");
-      $("#emailCreate").addClass("is-valid");
-      $("#emailError").html("");
-    }
-
-    if (passwordLength < 9) {
+  if (passwordLength < 9) {
+    $("#passwordCreate").addClass("is-invalid");
+    $("#passwordError").html("Your password must be at least 9 characters");
+    if (passwordLength === 0) {
       $("#passwordCreate").addClass("is-invalid");
-      $("#passwordError").html("Your password must be at least 9 characters");
-      if (passwordLength === 0) {
-        $("#passwordCreate").addClass("is-invalid");
-        $("#passwordError").html("Please enter your password");
-      }
-    } else {
-      $("#passwordCreate").removeClass("is-invalid");
-      $("#passwordCreate").addClass("is-valid");
-      $("#passwordError").html("");
+      $("#passwordError").html("Please enter your password");
     }
-  });
-
-  $("#textBox").keyup(function () {
-    let textCount = $("#textBox").val().length;
-    $("#count").html(`${textCount}/240`);
-    if (textCount > 240) {
-      $("#count").addClass("text-danger");
-    } else {
-      $("#count").removeClass("text-danger");
-    }
-  });
+  } else {
+    $("#passwordCreate").removeClass("is-invalid");
+    $("#passwordCreate").addClass("is-valid");
+    $("#passwordError").html("");
+  }
+});
+// Text area
+$("#textBox").keyup(function () {
+  let textCount = $("#textBox").val().length;
+  $("#count").html(`${textCount}/240`);
+  if (textCount > 240) {
+    $("#count").addClass("text-danger");
+  } else {
+    $("#count").removeClass("text-danger");
+  }
 });
