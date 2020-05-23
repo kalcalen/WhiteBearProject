@@ -38,17 +38,17 @@ $("#letsGo").click(function () {
   if (passwordInput === 0) {
     $("#passwordError").removeClass("d-none");
     $("#passwordCreate").addClass("is-invalid");
-    $("#passwordErrorNineC").addClass("d-none");
+    $("#passwordError9C").addClass("d-none");
     // If less than 9 characters
   } else if (passwordInput < 9) {
     $("#passwordCreate").addClass("is-invalid");
-    $("#passwordErrorNineC").removeClass("d-none");
+    $("#passwordError9C").removeClass("d-none");
     $("#passwordError").addClass("d-none");
     // If more than 9 characters
   } else {
     $("#passwordError").addClass("d-none");
     $("#passwordCreate").removeClass("is-invalid");
     $("#passwordCreate").addClass("is-valid");
-    $("#passwordErrorNineC").addClass("d-none");
+    $("#passwordError9C").addClass("d-none");
   }
 });
