@@ -55,6 +55,7 @@ $("#letsGo").click(function () {
 
 // Character Counter
 $("#textBox").keyup(function () {
+  // calls count ID and counts characters from 0
   $("#count").text($("#textBox").val().length);
 
   var textBox = $("#textBox").val();
