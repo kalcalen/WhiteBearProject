@@ -52,3 +52,8 @@ $("#letsGo").click(function () {
     $("#passwordError9C").addClass("d-none");
   }
 });
+
+// Character Counter
+$("#textBox").keyup(function () {
+  $("#count").text($("#textBox").val().length);
+});
