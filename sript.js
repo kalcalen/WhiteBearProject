@@ -56,4 +56,18 @@ $("#letsGo").click(function () {
 // Character Counter
 $("#textBox").keyup(function () {
   $("#count").text($("#textBox").val().length);
+
+  var textBox = $("#textBox").val();
+  // changes text to red if over 240
+  if (textBox.length > 240) {
+    $("#count2").addClass("text-danger");
+  } else {
+    $("#count2").removeClass("text-danger");
+  }
+  if (textBox.length <= 240 && textBox.length > 0) {
+    $("#count3").removeClass("disabled");
+    // disables button again when no characters are in textbox / over 240
+  } else {
+    $("#count3").addClass("disabled");
+  }
 });
