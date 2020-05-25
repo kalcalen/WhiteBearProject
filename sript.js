@@ -52,23 +52,23 @@ $("#letsGo").click(function () {
     $("#passwordError9C").addClass("d-none");
   }
 });
-
-// Character Counter
+// Added keyup and length to textbox to count characters
 $("#textBox").keyup(function () {
-  // calls count ID and counts characters from 0
+  //Added .text to manipulate 0 on html
   $("#count").text($("#textBox").val().length);
-
-  var textBox = $("#textBox").val();
-  // changes text to red if over 240
-  if (textBox.length > 240) {
+  // Variable to store information in textbox
+  var textBox = $("#textBox").val().length;
+  // Enables red text when characters over 240
+  if (textBox > 240) {
     $("#count2").addClass("text-danger");
   } else {
     $("#count2").removeClass("text-danger");
   }
-  if (textBox.length <= 240 && textBox.length > 0) {
-    $("#count3").removeClass("disabled");
-    // disables button again when no characters are in textbox / over 240
+  // disables button if less than 0, more than 240 characters
+  if (textBox > 0 && textBox < 240) {
+    $("#nextBcreate").removeClass("disabled");
+    // enabes button when characters inputed
   } else {
-    $("#count3").addClass("disabled");
+    $("#nextBcreate").addClass("disabled");
   }
 });
