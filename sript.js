@@ -21,11 +21,20 @@ $("#sign-up").click(function () {
 // Text input box actions
 $("#letsGo").click(function () {
   // Varaibles for email and password textbox
-  var emailInput = $("#emailCreate").val().length;
-  var passwordInput = $("#passwordCreate").val().length;
+  var emailInput = $("#emailCreate").val();
+  console.log(emailInput);
+
+  var emailInputLength = emailInput.length;
+  console.log(emailInputLength);
+
+  var passwordInput = $("#passwordCreate").val();
+  console.log(passwordInput);
+
+  var passwordInputLength = passwordInput.length;
+  console.log(passwordInput);
 
   // For email text box if empty
-  if (emailInput == 0) {
+  if (emailInputLength === 0) {
     $("#emailError").removeClass("d-none");
     $("#emailCreate").addClass("is-invalid");
     // If filled
@@ -35,12 +44,12 @@ $("#letsGo").click(function () {
     $("#emailCreate").addClass("is-valid");
   }
   // For password box if completely empty
-  if (passwordInput === 0) {
+  if (passwordInputLength === 0) {
     $("#passwordError").removeClass("d-none");
     $("#passwordCreate").addClass("is-invalid");
     $("#passwordError9C").addClass("d-none");
     // If less than 9 characters
-  } else if (passwordInput < 9) {
+  } else if (passwordInputLength < 9) {
     $("#passwordCreate").addClass("is-invalid");
     $("#passwordError9C").removeClass("d-none");
     $("#passwordError").addClass("d-none");
