@@ -33,6 +33,12 @@ $("#letsGo").click(function () {
   var passwordInputLength = passwordInput.length;
   console.log(passwordInput);
 
+  // Grabbing index of where @ symbol is
+  var emailAtSymbol = emailInput.indexOf("@");
+
+  // Grabbing local part of the email (front part)
+  var emailLocalPart = emailInput.slice(0, emailAtSymbol);
+
   // For email text box if empty
   if (emailInputLength === 0) {
     $("#emailError").removeClass("d-none");
@@ -48,19 +54,34 @@ $("#letsGo").click(function () {
     $("#passwordError").removeClass("d-none");
     $("#passwordCreate").addClass("is-invalid");
     $("#passwordError9C").addClass("d-none");
-    // If less than 9 characters
+    // If password isless than 9 characters
   } else if (passwordInputLength < 9) {
     $("#passwordCreate").addClass("is-invalid");
     $("#passwordError9C").removeClass("d-none");
     $("#passwordError").addClass("d-none");
-    // If more than 9 characters
+
+    // If password is more than 9 characters
   } else {
     $("#passwordError").addClass("d-none");
     $("#passwordCreate").removeClass("is-invalid");
     $("#passwordCreate").addClass("is-valid");
     $("#passwordError9C").addClass("d-none");
   }
+  if (passwordInput.indexOf(emailLocalPart) > -1) {
+    $("#passwordErrorEmVal").removeClass("d-none");
+    $("#passwordCreate").addClass("is-invalid");
+  } else if (passwordInputLength < 9) {
+    $("#passwordCreate").addClass("is-invalid");
+    $("#passwordError9C").removeClass("d-none");
+    $("#passwordError").addClass("d-none");
+    $("#passwordErrorEmVal").addClass("d-none");
+  } else {
+    $("#passwordCreate").removeClass("is-invalid");
+    $("#passwordErrorEmVal").addClass("d-none");
+    $("#passwordError9C").addClass("d-none");
+  }
 });
+
 // Added keyup and length to textbox to count characters
 $("#textBox").keyup(function () {
   //Added .text to manipulate 0 on html
