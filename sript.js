@@ -1,9 +1,3 @@
-// Variables for index Sign-Up
-let indexDate;
-
-indexDate = new Date();
-console.log(indexDate.toString());
-
 $("#form-toggle").toggle();
 // Index banners
 $("#save-imagery").click(function () {
@@ -82,6 +76,71 @@ $("#letsGo").click(function () {
     $("#passwordErrorEmVal").addClass("d-none");
     $("#passwordError9C").addClass("d-none");
   }
+
+  // Variables for index Sign-Up
+
+  let currentDate = new Date();
+  console.log(currentDate.toString());
+  let currentYear = currentDate.getYear() - 100;
+  console.log(currentYear);
+  let currentMonth = currentDate.getMonth() + 1;
+  console.log(currentMonth);
+  let currentDay = currentDate.getDate();
+  console.log(currentDay);
+  let currentHour = currentDate.getHours();
+  console.log(currentHour);
+  let currentMinutes = currentDate.getMinutes();
+  console.log(currentMinutes);
+  let currentSeconds = currentDate.getSeconds();
+  console.log(currentSeconds);
+  let currentMiliSeconds = currentDate.getMilliseconds();
+  console.log("current miliseconds", currentMiliSeconds);
+
+  let getFullDate =
+    addTwoPadding(currentYear) +
+    addTwoPadding(currentMonth) +
+    addTwoPadding(currentDay) +
+    addTwoPadding(currentHour) +
+    addTwoPadding(currentMinutes) +
+    addTwoPadding(currentSeconds);
+  console.log("Full date", getFullDate);
+
+  // Function for making a number 3 digits
+  function addThreePadding(num) {
+    var numAsString = String(num);
+    if (numAsString.length === 1) {
+      return "00" + numAsString; // 4 returns "004"
+    } else if (numAsString.length === 2) {
+      return "0" + numAsString; // 44 returns "044"
+    } else {
+      return numAsString;
+    }
+  }
+
+  // Function for making a number 2 digits
+  function addTwoPadding(num) {
+    var numAsString = String(num);
+    if (numAsString.length === 1) {
+      return "0" + numAsString; // 4 returns "04"
+    } else {
+      return numAsString;
+    }
+  }
+
+  // Variable for creating randonm number
+  var getNumber = Math.floor(Math.random() * 1000);
+  console.log(getNumber);
+  var idCreated = "" + currentMiliSeconds + getNumber;
+  console.log(idCreated);
+
+  var userObj = {
+    _id: getNumber,
+    email: emailInput,
+    password: passwordInput,
+    createdOn: getFullDate,
+  };
+
+  console.log(userObj);
 });
 
 // Added keyup and length to textbox to count characters
