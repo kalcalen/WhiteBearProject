@@ -1,5 +1,6 @@
 $("#form-toggle").toggle();
-// Index banners
+
+// Save button on create-imagery
 $("#save-imagery").click(function () {
   $("#overlay-success").toggleClass("d-flex d-none");
 });
@@ -8,13 +9,13 @@ $("#back2-answer").click(function () {
   $("#overlay-error").toggleClass("d-flex d-none");
 });
 
-// Sign-up button index
+// Sign-up button on index
 $("#sign-up").click(function () {
   $("#form-toggle").toggle();
   $("#sign-up").toggle();
 });
 
-// Text input box actions
+// Function for "Lets Go" btn on index
 $("#letsGo").click(function () {
   // Varaibles for email and password textbox
   var emailInput = $("#emailCreate").val();
@@ -80,19 +81,19 @@ $("#letsGo").click(function () {
   // Variables for index Sign-Up
 
   let currentDate = new Date();
-  console.log(currentDate.toString());
+  console.log("current date", currentDate.toString());
   let currentYear = currentDate.getYear() - 100;
-  console.log(currentYear);
+  console.log("current year", currentYear);
   let currentMonth = currentDate.getMonth() + 1;
-  console.log(currentMonth);
+  console.log("current month", currentMonth);
   let currentDay = currentDate.getDate();
-  console.log(currentDay);
+  console.log("current day", currentDay);
   let currentHour = currentDate.getHours();
-  console.log(currentHour);
+  console.log("current hour", currentHour);
   let currentMinutes = currentDate.getMinutes();
-  console.log(currentMinutes);
+  console.log("current minutes", currentMinutes);
   let currentSeconds = currentDate.getSeconds();
-  console.log(currentSeconds);
+  console.log("current senconds", currentSeconds);
   let currentMiliSeconds = currentDate.getMilliseconds();
   console.log("current miliseconds", currentMiliSeconds);
 
@@ -102,6 +103,7 @@ $("#letsGo").click(function () {
     addTwoPadding(currentDay) +
     addTwoPadding(currentHour) +
     addTwoPadding(currentMinutes) +
+    addThreePadding(currentMiliSeconds) +
     addTwoPadding(currentSeconds);
   console.log("Full date", getFullDate);
 
