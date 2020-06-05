@@ -1,3 +1,9 @@
+// Variables for index Sign-Up
+let indexDate;
+
+indexDate = new Date();
+console.log(indexDate.toString());
+
 $("#form-toggle").toggle();
 // Index banners
 $("#save-imagery").click(function () {
@@ -13,10 +19,6 @@ $("#sign-up").click(function () {
   $("#form-toggle").toggle();
   $("#sign-up").toggle();
 });
-
-//$("#sign-up").click(function () {
-//  $("#sign-up").hide();
-// });
 
 // Text input box actions
 $("#letsGo").click(function () {
