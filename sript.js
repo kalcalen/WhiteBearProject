@@ -1,8 +1,76 @@
 $("#form-toggle").toggle();
 
-// Save button on create-imagery
+// Save button on "create-imagery"
 $("#save-imagery").click(function () {
   $("#overlay-success").toggleClass("d-flex d-none");
+  let currentDate = new Date();
+  console.log("current date", currentDate.toString());
+  let currentYear = currentDate.getYear() - 100;
+  console.log("current year", currentYear);
+  let currentMonth = currentDate.getMonth() + 1;
+  console.log("current month", currentMonth);
+  let currentDay = currentDate.getDate();
+  console.log("current day", currentDay);
+  let currentHour = currentDate.getHours();
+  console.log("current hour", currentHour);
+  let currentMinutes = currentDate.getMinutes();
+  console.log("current minutes", currentMinutes);
+  let currentSeconds = currentDate.getSeconds();
+  console.log("current senconds", currentSeconds);
+  let currentMiliSeconds = currentDate.getMilliseconds();
+  console.log("current miliseconds", currentMiliSeconds);
+
+  let getFullDate =
+    addTwoPadding(currentYear) +
+    addTwoPadding(currentMonth) +
+    addTwoPadding(currentDay) +
+    addTwoPadding(currentHour) +
+    addTwoPadding(currentMinutes) +
+    addThreePadding(currentMiliSeconds) +
+    addTwoPadding(currentSeconds);
+  console.log("Full date", getFullDate);
+
+  // Function for making a number 3 digits
+  function addThreePadding(num) {
+    var numAsString = String(num);
+    if (numAsString.length === 1) {
+      return "00" + numAsString; // 4 returns "004"
+    } else if (numAsString.length === 2) {
+      return "0" + numAsString; // 44 returns "044"
+    } else {
+      return numAsString;
+    }
+  }
+
+  // Function for making a number 2 digits
+  function addTwoPadding(num) {
+    var numAsString = String(num);
+    if (numAsString.length === 1) {
+      return "0" + numAsString; // 4 returns "04"
+    } else {
+      return numAsString;
+    }
+  }
+
+  // Variable for creating random number
+  var getNumber = Math.floor(Math.random() * 1000);
+  console.log(getNumber);
+  var idCreated = "" + currentMiliSeconds + getNumber;
+  console.log(idCreated);
+
+  var userObj = {
+    _id: getNumber,
+    imagery:
+      "A delicious shishkebab but the first bite of meat after the pointy end is spicy & makes an exclamation point appear over my head like in a JRPG.",
+    answer:
+      "The syntax for making a comment in HTML is <!-- Mike's comment here -->",
+    levelNum: 1,
+    successfulAttemptsNum: 0,
+    createdOn: 200508232659,
+    lastAttemptedOn: getFullDate,
+  };
+
+  console.log(userObj);
 });
 
 $("#back2-answer").click(function () {
@@ -129,7 +197,7 @@ $("#letsGo").click(function () {
     }
   }
 
-  // Variable for creating randonm number
+  // Variable for creating random number
   var getNumber = Math.floor(Math.random() * 1000);
   console.log(getNumber);
   var idCreated = "" + currentMiliSeconds + getNumber;
@@ -145,6 +213,7 @@ $("#letsGo").click(function () {
   console.log(userObj);
 });
 
+// Textbox counter for "create answer"
 // Added keyup and length to textbox to count characters
 $("#textBox").keyup(function () {
   //Added .text to manipulate 0 on html
