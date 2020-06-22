@@ -35,9 +35,7 @@
                   name="email"
                 />
 
-                <p class="text-danger d-none" id="emailError">
-                  Please enter your email address
-                </p>
+                <p class="text-danger" id="emailError"></p>
                 <label class="text-muted" for="password">Password</label>
                 <input
                   class="form-control mb-3 mt-3"
@@ -45,15 +43,7 @@
                   id="passwordCreate"
                   name="password"
                 />
-                <div class="text-danger d-none" id="passwordError">
-                  Please enter your password
-                </div>
-                <div class="text-danger d-none" id="passwordErrorEmVal">
-                  Your email address cannot be used in your password.
-                </div>
-                <div class="text-danger d-none" id="passwordError9C">
-                  Your password must be at least 9 characters.
-                </div>
+                <div class="text-danger" id="passwordError"></div>
                 <button
                   id="letsGo"
                   class="btn btn-success btn-block float-right mt-3"
@@ -101,5 +91,6 @@
     src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
     defer
   ></script>
-  <script src="sript.js" defer></script>
+  <script src="commonpasswords.js"></script>
+  <script src="script.js" defer></script>
 </html>
