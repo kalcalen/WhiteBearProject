@@ -116,7 +116,7 @@ $("#letsGo").click(function () {
 
   // For email text box if empty
   if (emailInputLength === 0) {
-    $("#emailError").html("please enter a password");
+    $("#emailError").html("Please enter a valid email address");
     $("#emailCreate").addClass("is-invalid");
     isValid = false;
     // If email textbox is filled
@@ -129,23 +129,25 @@ $("#letsGo").click(function () {
   // For password box if completely empty
   console.log(emailLocalPart);
   if (passwordInputLength === 0) {
-    $("#passwordError").html("please enter a password");
+    $("#passwordError").html("Please enter a password.");
     $("#passwordCreate").addClass("is-invalid");
     isValid = false;
 
     // If password isless than 9 characters
   } else if (passwordInputLength <= 9) {
     $("#passwordCreate").addClass("is-invalid");
-    $("#passwordError").html("Password must be at least 9 characters long");
+    $("#passwordError").html("Password must be at least 9 characters long.");
     isValid = false;
 
     // If password contains characters from email
   } else if (passwordInput.includes(emailLocalPart)) {
-    $("#passwordError").html("cannot contain local part");
+    $("#passwordError").html(
+      "Your email address cannot be used in your password."
+    );
     $("#passwordCreate").addClass("is-invalid");
     isValid = false;
   } else if (arrPwOver8.includes(passwordInput)) {
-    $("#passwordError").html("password is too common");
+    $("#passwordError").html("Password is too common.");
     isValid = false;
 
     // If password is less than 9 characters
