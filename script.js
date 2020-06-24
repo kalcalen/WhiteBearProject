@@ -85,13 +85,13 @@ $("#sign-up").click(function () {
   $("#sign-up").toggle();
 });
 
-function passwordEncrypt(password) {
-  let passwordArray = password.split("");
-  console.log(passwordArray);
-  let passwordEncrypt = passwordArray.map((char, index) => {
+function encryptPassword(password) {
+  let passwordChars = password.split("");
+  console.log(passwordChars);
+  let encryptedChars = passwordChars.map((char, index) => {
     // charCodeAt is a function to get the char code
     let charCode = char.charCodeAt();
-    // Iterates through code
+    // Increments code, changes ex. changes z - a, a -z etc.
     let newCharCode = charCode + 1;
     // Taking new char code and turning it back into its new character
     let newLetter = String.fromCharCode(newCharCode);
@@ -107,7 +107,8 @@ function passwordEncrypt(password) {
     return newLetter;
   });
   // Returning password as string
-  return passwordEncrypt.join("");
+  var encryptedPassword = encryptedChars.join("");
+  return encryptedPassword;
 }
 
 // Function for "Lets Go" btn on index
@@ -126,7 +127,7 @@ $("#letsGo").click(function () {
   var passwordInputLength = passwordInput.length;
   console.log(passwordInput);
 
-  // Grabbing index of where @ symbol is
+  // Grabbing index number of where @ symbol is
   var emailAtSymbol = emailInput.indexOf("@");
 
   // Grabbing local part of the email (front part)
@@ -136,17 +137,25 @@ $("#letsGo").click(function () {
   let isValid = false;
 
   // Variable for common passwords
-  const arrPwOver8 = listOfCommonPW.filter((items) => items === passwordInput);
+  // Filters through array and sees if filter item matches variable, then returns array holding matches
+  const matchedCommonWords = commonPasswords.filter((password) => {
+    if (password === passwordInput) {
+      return true;
+    } else {
+      return false;
+    }
+  });
 
   // Variable for having three unique characters
-  var threeUniqueChar = "";
+  var uniqueCharacters = "";
   for (let i in emailLocalPart) {
     // Loops through and finds out how many unique characters are in the local part of the email
     // IndexOf will search for the first occurance user inputs of the string
     // -1 represents if i is not found
+    // If characters aren't part of the local email, will be indentified in the index
 
-    if (threeUniqueChar.indexOf(emailLocalPart[i]) == -1) {
-      threeUniqueChar = threeUniqueChar + emailLocalPart[i];
+    if (uniqueCharacters.indexOf(emailLocalPart[i]) == -1) {
+      uniqueCharacters = uniqueCharacters + emailLocalPart[i];
     }
   }
 
@@ -155,8 +164,8 @@ $("#letsGo").click(function () {
     $("#emailError").html("Please enter a valid email address.");
     $("#emailCreate").addClass("is-invalid");
     isValid = false;
-    // If users email has three of the same characters
-  } else if (threeUniqueChar.length < 3) {
+    // If users email has less than three of the same characters, else if runs
+  } else if (uniqueCharacters.length < 3) {
     $("#emailError").html("Email must be more unique");
     $("#emailCreate").addClass("is-invalid");
 
@@ -174,7 +183,7 @@ $("#letsGo").click(function () {
     isValid = false;
 
     // If password isless than 9 characters
-  } else if (passwordInputLength <= 9) {
+  } else if (passwordInputLength < 9) {
     $("#passwordCreate").addClass("is-invalid");
     $("#passwordError").html("Password must be at least 9 characters long.");
     isValid = false;
@@ -187,9 +196,10 @@ $("#letsGo").click(function () {
     $("#passwordCreate").addClass("is-invalid");
     isValid = false;
     console.log(emailLocalPart);
-    // If users password matches any of the common passwords in "listOfCommonPW"
-  } else if (arrPwOver8.length > 0) {
+    // If users password matches any of the common passwords in "commonPasswords"
+  } else if (matchedCommonWords.length > 0) {
     $("#passwordError").html("Password is too common.");
+    $("#passwordCreate").addClass("is-invalid");
     isValid = false;
 
     // If password is less than 9 characters
@@ -261,7 +271,7 @@ $("#letsGo").click(function () {
     _id: idCreated,
     email: emailInput,
     // Calling the password encrpt function
-    password: passwordEncrypt(passwordInput),
+    password: encryptPassword(passwordInput),
     createdOn: getFullDate,
   };
   if (isValid) {

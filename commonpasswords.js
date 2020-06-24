@@ -1,4 +1,4 @@
-var listOfCommonPW = [
+var commonPasswords = [
   "x002tp00",
   "x4ww5qdr",
   "x72jhhu3z",
