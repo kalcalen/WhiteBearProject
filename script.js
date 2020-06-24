@@ -1,7 +1,3 @@
-const arrPwOver8 = listOfCommonPW.filter((items) => {
-  return items.length > 8;
-});
-
 $("#form-toggle").toggle();
 
 // Save button on "create-imagery"
@@ -89,6 +85,31 @@ $("#sign-up").click(function () {
   $("#sign-up").toggle();
 });
 
+function passwordEncrypt(password) {
+  let passwordArray = password.split("");
+  console.log(passwordArray);
+  let passwordEncrypt = passwordArray.map((char, index) => {
+    // charCodeAt is a function to get the char code
+    let charCode = char.charCodeAt();
+    // Iterates through code
+    let newCharCode = charCode + 1;
+    // Taking new char code and turning it back into its new character
+    let newLetter = String.fromCharCode(newCharCode);
+    // Converts upper and lower case letters to encrypted code
+    if (charCode >= 65 && charCode <= 122) {
+      if (char === "z") {
+        newLetter = "a";
+      }
+      if (char === "Z") {
+        newLetter = "A";
+      }
+    }
+    return newLetter;
+  });
+  // Returning password as string
+  return passwordEncrypt.join("");
+}
+
 // Function for "Lets Go" btn on index
 $("#letsGo").click(function () {
   // Varaibles for email and password textbox
@@ -113,6 +134,9 @@ $("#letsGo").click(function () {
 
   // Variable to see if inputs passed "checks"
   let isValid = false;
+
+  // Variable for common passwords
+  const arrPwOver8 = listOfCommonPW.filter((items) => items === passwordInput);
 
   // Variable for having three unique characters
   var threeUniqueChar = "";
@@ -164,7 +188,7 @@ $("#letsGo").click(function () {
     isValid = false;
     console.log(emailLocalPart);
     // If users password matches any of the common passwords in "listOfCommonPW"
-  } else if (arrPwOver8.includes(passwordInput)) {
+  } else if (arrPwOver8.length > 0) {
     $("#passwordError").html("Password is too common.");
     isValid = false;
 
@@ -234,9 +258,10 @@ $("#letsGo").click(function () {
   console.log(idCreated);
 
   var userObj = {
-    _id: getNumber,
+    _id: idCreated,
     email: emailInput,
-    password: passwordInput,
+    // Calling the password encrpt function
+    password: passwordEncrypt(passwordInput),
     createdOn: getFullDate,
   };
   if (isValid) {
