@@ -111,14 +111,31 @@ $("#letsGo").click(function () {
   // Grabbing local part of the email (front part)
   var emailLocalPart = emailInput.slice(0, emailAtSymbol);
 
-  // Variable for
+  // Variable to see if inputs passed "checks"
   let isValid = false;
+
+  // Variable for having three unique characters
+  var threeUniqueChar = "";
+  for (let i in emailLocalPart) {
+    // Loops through and finds out how many unique characters are in the local part of the email
+    // IndexOf will search for the first occurance user inputs of the string
+    // -1 represents if i is not found
+
+    if (threeUniqueChar.indexOf(emailLocalPart[i]) == -1) {
+      threeUniqueChar = threeUniqueChar + emailLocalPart[i];
+    }
+  }
 
   // For email text box if empty
   if (emailInputLength === 0) {
-    $("#emailError").html("Please enter a valid email address");
+    $("#emailError").html("Please enter a valid email address.");
     $("#emailCreate").addClass("is-invalid");
     isValid = false;
+    // If users email has three of the same characters
+  } else if (threeUniqueChar.length < 3) {
+    $("#emailError").html("Email must be more unique");
+    $("#emailCreate").addClass("is-invalid");
+
     // If email textbox is filled
   } else {
     $("#emailError").html("");
@@ -127,7 +144,6 @@ $("#letsGo").click(function () {
     isValid = true;
   }
   // For password box if completely empty
-  console.log(emailLocalPart);
   if (passwordInputLength === 0) {
     $("#passwordError").html("Please enter a password.");
     $("#passwordCreate").addClass("is-invalid");
@@ -146,6 +162,8 @@ $("#letsGo").click(function () {
     );
     $("#passwordCreate").addClass("is-invalid");
     isValid = false;
+    console.log(emailLocalPart);
+    // If users password matches any of the common passwords in "listOfCommonPW"
   } else if (arrPwOver8.includes(passwordInput)) {
     $("#passwordError").html("Password is too common.");
     isValid = false;
